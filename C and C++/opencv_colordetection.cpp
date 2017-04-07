@@ -57,8 +57,8 @@ int Hh[2] = {15,200}, Sh[2] = {255,255}, Vh[2] = {150,20};
 		inRange(im, Scalar(Hl[j],Sl[j],Vl[j]), Scalar(Hh[j],Sh[j],Vh[j]), t1);
 		threshold(t1,t1,127,255, THRESH_TOZERO);
 		GaussianBlur(t1,t1,Size(3,3), 0, 0);
+	        dilate(t1, t1, Mat(),Point(-1,-1),3);
 		erode(t1,t1,Mat(),Point(-1,-1),3) ;  //Tune for erode and dilate required
-		dilate(t1, t1, Mat(),Point(-1,-1),3);
 		t2 = t1.clone();
 
 		
